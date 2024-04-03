@@ -10,4 +10,4 @@
   $stm = $db->prepare($sql);
   $stm->execute($_POST);
   
-  header('Location: ./task_10.php');
+  eader('Location: ./task_10.php');
