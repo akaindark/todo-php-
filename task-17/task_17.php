@@ -78,10 +78,10 @@
                                         
                                         <div class="col-md-3 image">
                                             <img src="upload/<?php echo $image['image_name'];?>">
+                                            <a class="btn btn-danger" onclick="confirm('Вы уверены?');" href="delete.php?id=<?php echo $image['id'];?>">Удалить</a>
                                         </div>
                                         
                                         <?php endforeach; ?>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -89,9 +89,7 @@
                     </div>
                 </div>
             </div>
-
-
-        </main>
+</main>
         
 
         <script src="js/vendors.bundle.js"></script>
