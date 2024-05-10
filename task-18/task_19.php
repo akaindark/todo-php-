@@ -1,11 +1,3 @@
-<?php
-    $db = new PDO("mysql:host=localhost;dbname=todo;", 'root', '');
-    $sql = 'select * from images';
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +40,7 @@
                                         <form action="uploader.php" enctype="multipart/form-data" method="post">
                                             <div class="form-group">
                                                 <label class="form-label" for="simpleinput">Image</label>
-                                            <input name="file" type="file" id="simpleinput" class="form-control">
+                                                <input name="image[]" type="file" id="simpleinput" class="form-control" multiple>
                                             </div>
                                             <button type="submit" class="btn btn-success mt-3">Submit</button>
                                         </form>
@@ -74,14 +66,17 @@
                             <div class="panel-content">
                                 <div class="panel-content image-gallery">
                                     <div class="row">
-                                        <?php foreach ($images as $image): ?>
-                                        
                                         <div class="col-md-3 image">
-                                            <img src="upload/<?php echo $image['image_name'];?>">
-                                            <a class="btn btn-danger" onclick="confirm('Вы уверены?');" href="delete.php?id=<?php echo $image['id'];?>">Удалить</a>
+                                            <img src="img/demo/gallery/1.jpg">
                                         </div>
-                                        
-                                        <?php endforeach; ?>
+
+                                        <div class="col-md-3 image">
+                                            <img src="img/demo/gallery/2.jpg">
+                                        </div>
+
+                                        <div class="col-md-3 image">
+                                            <img src="img/demo/gallery/3.jpg">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +84,9 @@
                     </div>
                 </div>
             </div>
-</main>
+
+
+        </main>
         
 
         <script src="js/vendors.bundle.js"></script>
